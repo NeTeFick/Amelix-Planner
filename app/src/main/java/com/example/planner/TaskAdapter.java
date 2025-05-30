@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -35,13 +36,21 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
         holder.tvTitle.setText(task.getTitle());
         holder.tvDescription.setText(task.getDescription());
 
-        holder.itemView.setOnClickListener(v -> {
-            TaskDetailFragment fragment = TaskDetailFragment.newInstance(task);
-            ((AppCompatActivity) context).getSupportFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.fragment_container, fragment)
-                    .addToBackStack(null)
-                    .commit();
+        holder.itemView.setOnLongClickListener(v -> {
+            new AlertDialog.Builder(context)
+                    .setTitle("Удалить задачу")
+                    .setMessage("Вы уверены, что хотите удалить эту задачу?")
+                    .setPositiveButton("Удалить", (dialog, which) -> {
+                        Task taskToRemove = taskList.get(position);
+                        TaskDatabaseHelper dbHelper = new TaskDatabaseHelper(context);
+                        dbHelper.deleteTask(taskToRemove.getId());
+
+                        taskList.remove(position);
+                        notifyItemRemoved(position);
+                    })
+                    .setNegativeButton("Отмена", null)
+                    .show();
+            return true;
         });
     }
 

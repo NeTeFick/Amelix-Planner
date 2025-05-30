@@ -29,6 +29,13 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
 
+import org.threeten.bp.ZoneId;
+import org.threeten.bp.ZonedDateTime;
+import org.threeten.bp.LocalDate;
+import org.threeten.bp.Instant;
+import org.threeten.bp.DateTimeUtils;
+
+
 public class CalendarFragment extends Fragment {
 
     private MaterialCalendarView calendarView;
@@ -64,10 +71,25 @@ public class CalendarFragment extends Fragment {
 
         markDaysWithTasks();
 
-        calendarView.setOnDateChangedListener((@NonNull MaterialCalendarView widget, @NonNull CalendarDay date, boolean selected) -> {
-            String selectedDate = dateFormat.format(date.getDate());
+        calendarView.setOnDateChangedListener((widget, date, selected) -> {
+            LocalDate localDate = date.getDate();
+            String selectedDate = localDate.toString(); // "yyyy-MM-dd"
             loadTasksForDate(selectedDate);
+
+            // Переход к TaskDetailFragment
+            TaskDetailFragment detailFragment = TaskDetailFragment.newInstance(null);
+            Bundle bundle = new Bundle();
+            bundle.putString("date", selectedDate);
+            detailFragment.setArguments(bundle);
+
+            requireActivity().getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.fragment_container, detailFragment) // Убедись, что этот ID существует в layout
+                    .addToBackStack(null)
+                    .commit();
         });
+
+
 
         return view;
     }

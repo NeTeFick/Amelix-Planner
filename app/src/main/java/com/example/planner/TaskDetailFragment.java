@@ -15,6 +15,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 public class TaskDetailFragment extends Fragment {
 
     private static final String ARG_ID = "id";
@@ -49,6 +53,17 @@ public class TaskDetailFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
+
+
+        String selectedDate;
+        if (getArguments() != null && getArguments().containsKey("selectedDate")) {
+            selectedDate = getArguments().getString("selectedDate");
+        } else {
+            // если ничего не передано — берем текущую дату
+            SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy", Locale.getDefault());
+            selectedDate = sdf.format(new Date());
+        }
+
 
         View view = inflater.inflate(R.layout.fragment_task_detail, container, false);
 
