@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:padding="16dp"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
+
+    <!-- Заголовок задачи -->
+    <EditText
+        android:id="@+id/etTaskTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Заголовок"
+        android:textSize="18sp"
+        android:textColor="@android:color/black"
+        android:inputType="textCapSentences"
+        android:maxLines="1" />
+
+    <!-- Описание задачи -->
+    <EditText
+        android:id="@+id/etTaskDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Описание"
+        android:layout_marginTop="12dp"
+        android:inputType="textMultiLine"
+        android:minLines="4"
+        android:textColor="@android:color/black" />
+
+    <!-- Кнопка сохранить -->
+    <Button
+        android:id="@+id/btnSaveTask"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Сохранить"
+        android:textAllCaps="false"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="#251249"
+        android:textColor="@android:color/white" />
+</LinearLayout>
