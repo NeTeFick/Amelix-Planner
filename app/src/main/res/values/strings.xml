@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Planner</string>
+    <string name="app_name">AmelixPlanner</string>
     <string name="btn_prev">&lt;</string>
     <string name="btn_next">&gt;</string>
     <string name="calendar_month_year">Месяц Год</string>
