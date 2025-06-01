@@ -1,40 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/calendarLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
     android:orientation="vertical"
-    android:padding="16dp"
-    android:background="#FFFFFF">
+    android:padding="16dp">
 
-    <!-- Календарь -->
     <com.prolificinteractive.materialcalendarview.MaterialCalendarView
         android:id="@+id/calendarView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:mcv_showOtherDates="all"
-        app:mcv_selectionColor="#251249"
-        app:mcv_tileWidth="40dp"
-        app:mcv_tileHeight="40dp"
-        app:mcv_weekDayTextAppearance="@style/TextAppearance.AppCompat.Medium"
-        app:mcv_dateTextAppearance="@style/TextAppearance.AppCompat.Medium" />
+        app:mcv_selectionColor="@color/ic_launcher_background"
+        app:mcv_showOtherDates="all" />
 
-    <!-- Задачи на выбранную дату -->
+    <Button
+        android:id="@+id/button_add_task"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp"
+        android:text="Добавить задачу" />
+
     <TextView
         android:id="@+id/tvTaskHeader"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Задачи на дату:"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:layout_marginTop="16dp"
-        android:textColor="@android:color/black" />
+        android:layout_marginTop="12dp"
+        android:text="Задачи на сегодня"
+        android:textSize="18sp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/taskRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:layout_marginTop="8dp" />
+        android:layout_weight="1" />
 
 </LinearLayout>
