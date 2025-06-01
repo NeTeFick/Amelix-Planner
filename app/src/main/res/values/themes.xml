@@ -3,6 +3,11 @@
     <style name="Base.Theme.Planner" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="android:fontFamily">@font/zen_maru_gothic</item>
+        <item name="fontFamily">@font/zen_maru_gothic</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
     </style>
 
     <style name="Theme.Planner" parent="Base.Theme.Planner" />
