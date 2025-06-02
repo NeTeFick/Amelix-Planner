@@ -21,6 +21,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="16dp"
+        app:backgroundTint="#D1B3FF"
         android:text="Добавить задачу" />
 
     <TextView

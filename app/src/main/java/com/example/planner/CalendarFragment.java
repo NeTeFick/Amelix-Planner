@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -18,6 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.prolificinteractive.materialcalendarview.CalendarDay;
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
+
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -52,7 +54,7 @@ public class CalendarFragment extends Fragment {
         Button addTaskButton = view.findViewById(R.id.button_add_task);
 
         dbHelper = new TaskDatabaseHelper(requireContext());
-        taskAdapter = new TaskAdapter(taskList, requireContext());
+        taskAdapter  = new TaskAdapter(taskList, requireContext());
 
         taskRecyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
         taskRecyclerView.setAdapter(taskAdapter);
